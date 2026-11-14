@@ -1,0 +1,10 @@
+export type TransactionType = 'Penerimaan pelanggan' | 'Pengeluaran' | 'Pembayaran supplier' | 'Pembayaran gaji' | 'Refund'
+export interface FinanceTransaction { id:string; date:string; description:string; reference:string; type:TransactionType; account:string; method:string; outlet:string; amount:number; direction:'in'|'out'; status:'Berhasil'|'Menunggu'|'Dibatalkan' }
+export const transactions:FinanceTransaction[]=[
+  {id:'TRX-261114-0381',date:'14 Nov 2026, 14.22',description:'Pembayaran pesanan Dewi Anggraini',reference:'LDY-261114-0187',type:'Penerimaan pelanggan',account:'Kas Outlet Kemang',method:'Tunai',outlet:'Outlet Kemang',amount:65200,direction:'in',status:'Berhasil'},
+  {id:'TRX-261114-0380',date:'14 Nov 2026, 13.48',description:'Pembelian deterjen cair',reference:'EXP-261114-0029',type:'Pengeluaran',account:'Bank BCA Operasional',method:'Transfer',outlet:'Outlet Kemang',amount:1250000,direction:'out',status:'Berhasil'},
+  {id:'TRX-261114-0379',date:'14 Nov 2026, 13.15',description:'Pelunasan pesanan Rizky Pratama',reference:'LDY-261114-0186',type:'Penerimaan pelanggan',account:'QRIS Settlement',method:'QRIS',outlet:'Outlet Kemang',amount:210000,direction:'in',status:'Berhasil'},
+  {id:'TRX-261114-0378',date:'14 Nov 2026, 12.40',description:'Pembayaran supplier PT Bersih Kimia',reference:'BILL-2611-0042',type:'Pembayaran supplier',account:'Bank BCA Operasional',method:'Transfer',outlet:'Semua Outlet',amount:4750000,direction:'out',status:'Berhasil'},
+  {id:'TRX-261114-0377',date:'14 Nov 2026, 11.36',description:'DP pesanan Maya Sari',reference:'LDY-261114-0188',type:'Penerimaan pelanggan',account:'Kas Outlet Kemang',method:'Tunai',outlet:'Outlet Kemang',amount:40000,direction:'in',status:'Berhasil'},
+  {id:'TRX-261114-0376',date:'14 Nov 2026, 10.55',description:'Refund pesanan LDY-261112-0162',reference:'RFD-261114-0003',type:'Refund',account:'Bank BCA Operasional',method:'Transfer',outlet:'Outlet Tebet',amount:85000,direction:'out',status:'Menunggu'},
+]
