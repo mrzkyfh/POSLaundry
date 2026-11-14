@@ -85,6 +85,18 @@ export type Database = {
         Update: { notes?:string|null }
         Relationships: []
       }
+      employees: {
+        Row:{id:string;organization_id:string;outlet_id:string|null;employee_code:string;full_name:string;email:string|null;phone:string|null;job_title:string;employment_type:string;joined_on:string;status:string;created_at:string;updated_at:string}
+        Insert:{id?:string;organization_id:string;outlet_id?:string|null;employee_code:string;full_name:string;email?:string|null;phone?:string|null;job_title:string;employment_type?:string;joined_on?:string;status?:string;created_at?:string;updated_at?:string}
+        Update:{outlet_id?:string|null;full_name?:string;email?:string|null;phone?:string|null;job_title?:string;employment_type?:string;joined_on?:string;status?:string;updated_at?:string}
+        Relationships:[]
+      }
+      attendance_records: {
+        Row:{id:string;organization_id:string;employee_id:string;outlet_id:string|null;attendance_date:string;scheduled_start:string|null;scheduled_end:string|null;clock_in:string|null;clock_out:string|null;status:string;notes:string|null;created_by:string|null;created_at:string;updated_at:string}
+        Insert:{id?:string;organization_id:string;employee_id:string;outlet_id?:string|null;attendance_date?:string;scheduled_start?:string|null;scheduled_end?:string|null;clock_in?:string|null;clock_out?:string|null;status?:string;notes?:string|null;created_by?:string|null;created_at?:string;updated_at?:string}
+        Update:{clock_in?:string|null;clock_out?:string|null;status?:string;notes?:string|null;updated_at?:string}
+        Relationships:[]
+      }
     }
     Views: Record<string, never>
     Functions: {
@@ -116,6 +128,8 @@ export type Database = {
         Args: { target_item_id:string; movement_kind:string; movement_quantity:number; movement_reference?:string|null; movement_notes?:string|null }
         Returns: { balance:number }
       }
+      create_employee:{Args:{employee_code:string;employee_name:string;employee_job_title:string;employee_email?:string|null;employee_phone?:string|null;target_outlet_id?:string|null;employee_type?:string;employee_joined_on?:string};Returns:{id:string}}
+      record_attendance:{Args:{target_employee_id:string;event_type:string;event_time?:string};Returns:{id:string}}
       has_organization_role: {
         Args: { target_organization_id: string; allowed_roles: string[] }
         Returns: boolean

@@ -4,6 +4,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'auth_gate.dart';
 import 'operational_data.dart';
 import 'order_flow.dart';
+import 'workforce_mobile.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -99,7 +100,7 @@ class _AppShellState extends State<AppShell> {
     HomePage(),
     OrdersPage(),
     ProductionPage(),
-    AttendancePage(),
+    LiveAttendancePage(),
     AccountPage(),
   ];
   @override
